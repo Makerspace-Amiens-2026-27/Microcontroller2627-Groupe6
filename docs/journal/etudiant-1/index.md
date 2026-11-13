@@ -1,13 +1,11 @@
 ---
 layout: default
-title: Étudiant 1
+title: Groupe
 parent: Journal de bord
 has_children: true
 ---
 
-# Étudiant 1
+# 2026-13-11
 
-{: .a_modifier }
-> Remplacez « Étudiant 1 » par votre prénom et votre nom, **dans le titre de la page
-> (`title:`) et dans le `parent:` de chacune de vos séances** : c'est ce qui
-> relie vos séances à votre page.
+On a installer PlatformIO, on a finit le td 1 toolchain faire clignoter la led de l'esp32-s3 et le td2 port série.
+
