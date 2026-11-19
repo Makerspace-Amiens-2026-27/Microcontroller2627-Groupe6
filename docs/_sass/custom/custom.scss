@@ -1,0 +1,147 @@
+// ───────── Bouton GameBoy (titre du site) ─────────
+.gb-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.gb-link {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.gb-btn {
+  --gb-heat: 0;
+  --gb-color: #8d9199;
+  --gb-border: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  margin: 4px;
+  border-radius: 14px;
+  border: var(--gb-border) solid var(--gb-color);
+  background: linear-gradient(145deg, #3a3e47, #1f2228);
+  box-shadow:
+    0 0 calc(var(--gb-heat) * 26px) calc(var(--gb-heat) * 5px) var(--gb-color),
+    inset 0 0 calc(var(--gb-heat) * 14px) var(--gb-color);
+  will-change: transform, box-shadow;
+}
+
+.gb-btn svg {
+  display: block;
+  pointer-events: none;
+}
+
+.gb-btn.gb-unlock {
+  animation: gb-flash 0.25s ease-in-out infinite alternate;
+}
+
+@keyframes gb-flash {
+  from { filter: brightness(1); }
+  to   { filter: brightness(2.4); }
+}
+
+.gb-sparks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+// ───────── Page secrète ─────────
+.gb-secret .gb-carts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+  margin: 1.5rem 0;
+}
+
+.gb-secret .gb-cart {
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  color: #e8e8e8;
+  background: linear-gradient(160deg, #6b6f78, #4a4d55);
+  border: 2px solid #2b2e36;
+  border-radius: 8px 8px 4px 4px;
+  padding: 10px 10px 16px;
+  box-shadow: 0 3px 0 #2b2e36;
+  transition: transform 0.1s;
+}
+
+.gb-secret .gb-cart:hover { transform: translateY(-3px); }
+.gb-secret .gb-cart:active { transform: translateY(1px); }
+
+.gb-secret .gb-cart-label {
+  display: block;
+  margin-bottom: 8px;
+  padding: 18px 6px;
+  background: #9bbc0f;
+  color: #0f380f;
+  border-radius: 4px;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.gb-secret .gb-cart small { opacity: 0.75; }
+
+.gb-secret #gb-screen {
+  width: min(100%, 640px);
+  aspect-ratio: 10 / 9;
+  margin: 1rem auto;
+  background: #0f380f;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gb-secret .gb-eject {
+  display: block;
+  margin: 0 auto;
+}
+
+
+// ───────── Finitions responsives et focus clavier ─────────
+.gb-secret #gb-screen {
+  // L’écran est positionné par inset: 0 dans le cadre LCD de la page.
+  // Évite les dimensions/aspect-ratio de la règle de grille des mini-jeux.
+  width: auto;
+  height: auto;
+  aspect-ratio: auto;
+  margin: 0;
+  border-radius: 0;
+}
+
+.gb-secret .gb-carts {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+}
+
+.gb-secret .gb-cart:focus-visible,
+.gb-secret .gb-eject:focus-visible,
+.gb-secret .gb-round:focus-visible,
+.gb-secret .gb-pill:focus-visible {
+  outline: 3px solid #2f3a8f;
+  outline-offset: 3px;
+}
+
+.gb-secret .gb-cart {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gb-secret .gb-cart { transition: none; }
+  .gb-secret .gb-cart:hover,
+  .gb-secret .gb-cart:active { transform: none; }
+}
