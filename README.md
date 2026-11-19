@@ -1,4 +1,4 @@
-# Nom du projet
+# Naintandeau GameBoy Groupe 6
 
 > [!IMPORTANT]
 > **À modifier** : ce repo a été créé depuis le template de projet du MakerSpace d'Amiens.
