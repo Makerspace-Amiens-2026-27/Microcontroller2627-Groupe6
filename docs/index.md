@@ -16,7 +16,7 @@ permalink: /
 > Les guides pour prendre en main ce template sont sur le
 > [site de documentation du MakerSpace](https://doc.makerspace-amiens.fr/workshops/methodologie-de-projet/).
 
-# Nom du projet
+# Naintendeau GameBoy
 
 {: .a_modifier }
 > Remplacez le titre ci-dessus et le texte ci-dessous par une présentation de votre projet.
